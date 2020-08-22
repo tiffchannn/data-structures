@@ -10,9 +10,9 @@ HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   //create bucket array
   // create tuple array
-    // push tuple into bucket
-    // push k into tuple
-    // push v into tuple
+  // push tuple into bucket
+  // push k into tuple
+  // push v into tuple
   var tuple = [k, v];
   if (this._storage[index] === undefined) {
     var bucket = [];
@@ -22,7 +22,7 @@ HashTable.prototype.insert = function(k, v) {
   // loop through bucket
   // search for any tuple that has same key as tuple
     for (var i = 0; i < this._storage[index].length; i++) {
-      var existingTuple = this._storage[index][i]
+      var existingTuple = this._storage[index][i];
       if (existingTuple[0] === tuple[0]) {
         //find out the index of the existing Tuple
         //splice out the existing Tuple and in the newTuple
@@ -37,9 +37,9 @@ HashTable.prototype.insert = function(k, v) {
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   // given the index of the bucket
-    // access the bucket
-    // loop through any tuples, examining keys (at index 0 of tuple)
-    //if match, return index 1 of tuple
+  // access the bucket
+  // loop through any tuples, examining keys (at index 0 of tuple)
+  //if match, return index 1 of tuple
   if (this._storage[index]) {
     for (var i = 0; i < this._storage[index].length; i++) {
       var tuple = this._storage[index][i];
@@ -58,7 +58,7 @@ HashTable.prototype.remove = function(k) {
   for (var i = 0; i < this._storage[index].length; i++) {
     var tuple = this._storage[index][i];
     if (tuple[0] === k) {
-      this._storage[index].splice(i, 1)
+      this._storage[index].splice(i, 1);
     }
   }
 
