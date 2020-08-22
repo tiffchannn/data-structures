@@ -37,17 +37,17 @@ Graph.prototype.contains = function(node) {
 
 // Removes a node from the graph.
 Graph.prototype.removeNode = function(node) {
-    // look up linked nodes
-      // loop through array
-    for (var i = 0; i < this.storage[node].length; i++) {
-      // for each referenced node, access its array
-      var keyOfOtherNode = this.storage[node][i];
-      // console.log('otherNodeArr indexOf: ', otherNodeArray.indexOf(node));
-      if (this.storage[keyOfOtherNode].indexOf(node) > -1) {
-        this.storage[keyOfOtherNode].splice(this.storage[keyOfOtherNode].indexOf(node), 1)
-      }
-
+  // look up linked nodes
+  // loop through array
+  for (var i = 0; i < this.storage[node].length; i++) {
+    // for each referenced node, access its array
+    var keyOfOtherNode = this.storage[node][i];
+    // console.log('otherNodeArr indexOf: ', otherNodeArray.indexOf(node));
+    if (this.storage[keyOfOtherNode].indexOf(node) > -1) {
+      this.storage[keyOfOtherNode].splice(this.storage[keyOfOtherNode].indexOf(node), 1);
     }
+
+  }
   // delete the whole node
   delete this.storage[node];
 
@@ -57,7 +57,7 @@ Graph.prototype.removeNode = function(node) {
 Graph.prototype.hasEdge = function(fromNode, toNode) {
   // if fromNode and toNode have specified value
   if (this.storage[fromNode].includes(toNode)) {
-    // return true
+  // return true
     return true;
   } else {
   // return false
